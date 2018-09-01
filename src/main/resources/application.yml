@@ -1,9 +1,30 @@
-#服务器端口
+#服务端口与超时
 server:
   port: 8080
+  session-timeout: 1200
+  tomcat:
+    uri-encoding: utf-8
+    compression: off
 
 #logback日志
 logging:
   config: classpath:logback.xml
+
+#actuator端口
+management:
+  server:
+    port: 9001
+  security:
+    enabled: false
+  endpoints:
+    web:
+      #修改访问路径  2.0之前默认是/   2.0默认是 /actuator  可以通过这个属性值修改
+      base-path: /monitor
+      exposure:
+        #开放所有页面节点  默认只开启了health、info两个节点(yml中*是特殊字符，需要引号)
+        include: "*"
+    health:
+      #显示健康具体信息  默认不会显示详细信息
+      show-details: always
 
 

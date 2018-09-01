@@ -25,7 +25,7 @@
     </properties>
 
     <dependencies>
-        
+
         <!-- spring boot 测试集成 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -39,10 +39,24 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+        <!-- spring actuator(2.0以上怎么集成？后续研究下) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+            <version>1.4.3.RELEASE</version>
+        </dependency>
+
         <!-- thymeleaf 模板 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+
+        <!-- 增加mysql驱动 -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
         </dependency>
 
     </dependencies>
