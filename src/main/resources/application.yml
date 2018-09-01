@@ -1,3 +1,9 @@
+#服务器端口
 server:
   port: 8080
+
+#logback日志
+logging:
+  config: classpath:logback.xml
+
 
