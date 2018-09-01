@@ -25,6 +25,7 @@
     </properties>
 
     <dependencies>
+        
         <!-- spring boot 测试集成 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -36,6 +37,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- thymeleaf 模板 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
 
     </dependencies>

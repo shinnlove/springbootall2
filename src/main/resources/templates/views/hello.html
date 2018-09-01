@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"></meta>
+    <title>使用Thymeleaf模板</title>
+</head>
+<body>
+<!-- 注意Thymeleaf模板中字符串要用单引号，${name}是变量 -->
+<p th:text="'你好，' + ${name} + '，我很爱你哟！'"/>
+</body>
+</html>
