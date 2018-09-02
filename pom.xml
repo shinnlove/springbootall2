@@ -59,6 +59,13 @@
             <scope>runtime</scope>
         </dependency>
 
+        <!-- 自定义起步依赖 -->
+        <dependency>
+            <groupId>com.shinnlove</groupId>
+            <artifactId>spring-boot-starter-hello</artifactId>
+            <version>1.0.0.20180902</version>
+        </dependency>
+
     </dependencies>
 
     <build>
