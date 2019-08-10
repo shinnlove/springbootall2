@@ -37,6 +37,8 @@ public class AOPConfig {
     /**
      * 一个简单的AspectJ环绕切面，表达式中不定参数用..表示。
      * 
+     * TODO：查阅spring官网文档，对于切面表达式，有直接对某些全类名的注解生效的表达式，可以使用下，不必再反射抓取方法上的注解了。
+     * 
      * @param jp 
      * @return              具体返回值看切面是位于哪一层，如果是在service就可以抛错；如果是controller层直接返回默认错误json。
      * @throws Throwable
