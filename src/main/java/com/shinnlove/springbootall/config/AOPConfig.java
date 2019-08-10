@@ -31,6 +31,7 @@ import com.shinnlove.springbootall.util.log.LoggerUtil;
 @Aspect
 public class AOPConfig {
 
+    /** logback日志框架配好，在`@Configuration`或`@Component`中就能拿到对象。 */
     private static final Logger LOGGER = LoggerFactory.getLogger(HelloController.class);
 
     /**
