@@ -28,6 +28,13 @@ management:
       show-details: always
 
 spring:
+  # thymeleaf
+  thymeleaf:
+    prefix: classpath:/templates/views
+    suffix: .html
+    mode: LEGACYHTML5
+    encoding: UTF-8
+    cache: false
   datasource:
     name: test
     url: jdbc:mysql://127.0.0.1:3306/springdemo
@@ -61,3 +68,4 @@ pagehelper:
   reasonable: true
   supportMethodsArguments: true
   params: count=countSql
+

@@ -32,6 +32,11 @@ public class UserServiceImpl implements UserService {
         return userMapper.insertSelective(user);
     }
 
+    @Override
+    public User findUserById(int userId) {
+        return userMapper.selectByPrimaryKey(userId);
+    }
+
     /*
      * 这个方法中用到了我们开头配置依赖的分页插件pagehelper
      * 很简单，只需要在service层传入参数，然后将参数传递给一个插件的一个静态方法即可；

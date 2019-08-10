@@ -18,6 +18,8 @@ public interface UserService {
 
     int addUser(User user);
 
+    User findUserById(int userId);
+
     List<User> findAllUser(int pageNum, int pageSize);
 
 }

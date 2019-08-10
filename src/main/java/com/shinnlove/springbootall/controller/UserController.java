@@ -34,10 +34,15 @@ public class UserController {
     }
 
     @ResponseBody
+    @RequestMapping(value = "/queryById/{id}", produces = { "application/json;charset=UTF-8" })
+    public Object queryUserInfo(@PathVariable("id") int userId) {
+        return userService.findUserById(userId);
+    }
+
+    @ResponseBody
     @RequestMapping(value = "/all/{pageNum}/{pageSize}", produces = { "application/json;charset=UTF-8" })
     public Object findAllUser(@PathVariable("pageNum") int pageNum,
                               @PathVariable("pageSize") int pageSize) {
-
         return userService.findAllUser(pageNum, pageSize);
     }
 
