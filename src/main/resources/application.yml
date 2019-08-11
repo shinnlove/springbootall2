@@ -3,8 +3,21 @@ server:
   port: 8080
   session-timeout: 1200
   tomcat:
+    accesslog:
+      # 打开Tomcat访问日志
+      enabled: true
+      # 访问日志所在目录
+      directory: logs
     uri-encoding: utf-8
     compression: off
+    # 允许HTTP请求缓存到请求队列的最大个数，默认不限制
+    accept-count:
+    # 最大连接数，默认不限制，如果一旦连接数到达，剩下的连接将会保存到请求缓存队列李，也就是accept-count指定队列
+    max-connections:
+    # 最大工作线程数
+    max-threads:
+    # HTTP POST最大长度，默认不限制
+    max-http-post-size:
 
 #logback日志
 logging:
