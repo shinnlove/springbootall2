@@ -15,7 +15,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @ConfigurationProperties("diy")
-public class DIYConfig {
+public class DIYPropertyConfig {
 
     private String ip;
     private String port;

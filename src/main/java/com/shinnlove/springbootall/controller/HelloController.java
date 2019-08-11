@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.shinnlove.springbootall.config.DIYConfig;
+import com.shinnlove.springbootall.service.ConfigService;
 import com.shinnlove.springbootall.util.code.SystemResultCode;
 import com.shinnlove.springbootall.util.exception.SystemException;
 import com.shinnlove.springbootall.util.log.LoggerUtil;
@@ -31,8 +31,9 @@ public class HelloController {
     /** 默认日志门面 */
     private static final Logger LOGGER = LoggerFactory.getLogger(HelloController.class);
 
+    /** 向上透出的config服务 */
     @Autowired
-    private DIYConfig           diyConfig;
+    private ConfigService       configService;
 
     /**
      * 欢迎页，并使用logback打日志。
@@ -58,12 +59,36 @@ public class HelloController {
      */
     @RequestMapping(value = "/{name}")
     public String sayHello(ModelMap modelMap, @PathVariable("name") String personName) {
-        // 直接使用上下文中注入的配置
-        String socketStr = diyConfig.getIp() + ":" + diyConfig.getPort();
-
-        modelMap.addAttribute("name", socketStr + ", " + personName);
+        modelMap.addAttribute("name", personName);
         // 返回views文件夹下的hello.html视图模板
         return "views/hello";
+    }
+
+    /**
+     * 测试spring-boot不同方式读取配置。
+     * 
+     * @param modelMap 
+     * @return
+     */
+    @RequestMapping(value = "/config")
+    public String getConfig(ModelMap modelMap) {
+        StringBuilder sb = new StringBuilder();
+
+        // 直接使用上下文中注入的配置
+        String socketStr = configService.getPropertiesConfig();
+
+        // 使用配置服务
+        String configStr = configService.getConfigStrFromEnv();
+        int configValue = configService.getConfigValueFromEnv();
+
+        // 使用@Value注解读取配置
+        String valueStr = configService.getValueFromValueSpEL();
+
+        // 准备输出
+        sb.append(socketStr).append(";").append(configStr).append(":").append(configValue)
+            .append(valueStr);
+        modelMap.addAttribute("config", sb.toString());
+        return "views/config";
     }
 
 }
