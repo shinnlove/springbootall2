@@ -19,7 +19,7 @@ server:
     # HTTP POST最大长度，默认不限制
     #max-http-post-size:
 
-#logback日志
+#logback日志(默认情况下，INFO级别以上的信息才会打印到控制台，可以自己设定日志输出级别)
 logging:
   config: classpath:logback.xml
 
@@ -40,4 +40,4 @@ management:
       #显示健康具体信息  默认不会显示详细信息
       show-details: always
 
-
+# 设置banner信息(现在字符集默认UTF-8不需要设置、location、image现在都是deprecated)
