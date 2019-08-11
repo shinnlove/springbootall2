@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -34,6 +35,16 @@ public class HelloController {
     /** 向上透出的config服务 */
     @Autowired
     private ConfigService       configService;
+
+    /**
+     * 本方法会在`Controller`的`RequestMapping`前执行，这个注解在spring中也有。
+     * 
+     * @param modelMap 
+     */
+    @ModelAttribute
+    public void addModelProperty(ModelMap modelMap) {
+        modelMap.addAttribute("user", "tony-shinn");
+    }
 
     /**
      * 欢迎页，并使用logback打日志。
