@@ -6,12 +6,14 @@ package com.shinnlove.springbootall.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.shinnlove.springbootall.config.DIYConfig;
 import com.shinnlove.springbootall.util.code.SystemResultCode;
 import com.shinnlove.springbootall.util.exception.SystemException;
 import com.shinnlove.springbootall.util.log.LoggerUtil;
@@ -28,6 +30,9 @@ public class HelloController {
 
     /** 默认日志门面 */
     private static final Logger LOGGER = LoggerFactory.getLogger(HelloController.class);
+
+    @Autowired
+    private DIYConfig           diyConfig;
 
     /**
      * 欢迎页，并使用logback打日志。
@@ -53,7 +58,10 @@ public class HelloController {
      */
     @RequestMapping(value = "/{name}")
     public String sayHello(ModelMap modelMap, @PathVariable("name") String personName) {
-        modelMap.addAttribute("name", personName);
+        // 直接使用上下文中注入的配置
+        String socketStr = diyConfig.getIp() + ":" + diyConfig.getPort();
+
+        modelMap.addAttribute("name", socketStr + ", " + personName);
         // 返回views文件夹下的hello.html视图模板
         return "views/hello";
     }
