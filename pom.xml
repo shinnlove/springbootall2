@@ -49,10 +49,22 @@
             <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
 
-        <!-- spring boot web集成 -->
+        <!-- spring boot web集成 (默认的server-embed就是在这个包里 dependency:tree分析下就可以看到) -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <!-- 这里使用undertow服务器 -->
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- 同时加入undertow服务器 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-undertow</artifactId>
         </dependency>
         <!-- thymeleaf 模板 -->
         <dependency>
