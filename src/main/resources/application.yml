@@ -42,6 +42,18 @@ management:
 
 # 设置banner信息(现在字符集默认UTF-8不需要设置、location、image现在都是deprecated)
 
+# spring servlet信息、数据源配置
+spring:
+  servlet:
+    # 配置servlet上传文件
+    multipart:
+      enabled: true
+      file-size-threshold: 0
+      location:
+      max-file-size: 25MB
+      max-request-size: 20MB
+      resolve-lazily: false
+
 # 自定义某些配置属性(如RPC服务或netty绑定端口，给`@ConfigurationProperties`用)
 diy:
   ip: 192.168.0.106
