@@ -85,8 +85,8 @@ public class HelloController {
         String valueStr = configService.getValueFromValueSpEL();
 
         // 准备输出
-        sb.append(socketStr).append(";").append(configStr).append(":").append(configValue)
-            .append(valueStr);
+        sb.append(socketStr).append("; ").append(configStr).append(":").append(configValue)
+            .append("; ").append(valueStr);
         modelMap.addAttribute("config", sb.toString());
         return "views/config";
     }

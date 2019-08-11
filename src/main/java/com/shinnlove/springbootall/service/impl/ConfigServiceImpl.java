@@ -35,7 +35,7 @@ public class ConfigServiceImpl implements ConfigService {
 
     @Override
     public String getConfigStrFromEnv() {
-        return env.getProperty("JAVA_HOME") + env.getProperty("diy.ip");
+        return env.getProperty("JAVA_HOME") + "; " + env.getProperty("diy.ip");
     }
 
     @Override
