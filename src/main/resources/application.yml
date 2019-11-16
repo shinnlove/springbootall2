@@ -53,6 +53,10 @@ spring:
       max-file-size: 25MB
       max-request-size: 20MB
       resolve-lazily: false
+  data:
+    elasticsearch:
+      cluster-nodes: 127.0.0.1:9300
+      cluster-name: shinnlove-mac
 
 # 自定义某些配置属性(如RPC服务或netty绑定端口，给`@ConfigurationProperties`用)
 diy:
