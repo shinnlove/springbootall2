@@ -7,6 +7,7 @@ package com.shinnlove.springbootall.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -18,6 +19,8 @@ import com.shinnlove.springbootall.service.ConfigService;
 import com.shinnlove.springbootall.util.code.SystemResultCode;
 import com.shinnlove.springbootall.util.exception.SystemException;
 import com.shinnlove.springbootall.util.log.LoggerUtil;
+
+import javax.sql.DataSource;
 
 /**
  * Spring boot hello demo.
@@ -35,6 +38,11 @@ public class HelloController {
     /** 向上透出的config服务 */
     @Autowired
     private ConfigService       configService;
+
+    /** inject default configured Hikari datasource */
+    @Autowired
+    @Qualifier("dataSource")
+    private DataSource          dataSource;
 
     /**
      * 本方法会在`Controller`的`RequestMapping`前执行，这个注解在spring中也有。
