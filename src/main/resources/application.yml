@@ -53,6 +53,29 @@ spring:
       max-file-size: 25MB
       max-request-size: 20MB
       resolve-lazily: false
+  kafka:
+    # multiple server use comma to split
+    bootstrap-servers: 127.0.0.1:9092
+    topic:
+      group-id: myTopicGroupId
+      topic-name:
+        - test
+        - zhixin
+    producer:
+      retries: 0
+      batch-size: 16384
+      buffer-memory: 33554432
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      properties:
+        linger.ms: 1
+    consumer:
+      enable-auto-commit: true
+      auto-commit-interval: 200ms
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      properties:
+        session.timeout.ms: 15000
 
 # 自定义某些配置属性(如RPC服务或netty绑定端口，给`@ConfigurationProperties`用)
 diy:

@@ -67,6 +67,12 @@
             <scope>runtime</scope>
         </dependency>
 
+        <!-- kafka integration -->
+        <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>
