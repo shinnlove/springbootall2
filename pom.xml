@@ -67,10 +67,7 @@
             <scope>runtime</scope>
         </dependency>
 
-<<<<<<< HEAD
         <!-- kafka integration -->
-=======
->>>>>>> 05e3c24fa7b901861c048585ea508acc41a8fa64
         <dependency>
             <groupId>org.springframework.kafka</groupId>
             <artifactId>spring-kafka</artifactId>
